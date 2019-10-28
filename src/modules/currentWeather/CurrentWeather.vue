@@ -4,7 +4,7 @@
 
         <CitySelection @citySelection="citySelectionHandler"/>
 
-        <section v-if="activeCityObj">
+        <section v-if="showWeather">
             <h2>Актуальна погода у місті {{activeCityObj.title}}</h2>
 
             <article>
@@ -29,7 +29,8 @@
     data () {
       return {
         weatherData: new Weather(),
-        activeCityObj: null
+        activeCityObj: null,
+        showWeather: false,
       }
     },
 
@@ -45,6 +46,9 @@
           .then((response) => {
             this.weatherData = new Weather(response.data)
           })
+          .then(()=>{
+            this.showWeather = true;
+          });
       },
       setActiveCity (activeCityObj) {
         this.activeCityObj = activeCityObj;

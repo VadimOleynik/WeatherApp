@@ -16,11 +16,6 @@ export function dateTransform (date) {
   return transformedDateObj
 }
 
-export function isEmptyOj (obj) {
-  console.log(obj)
-  return obj
-}
-
 export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
