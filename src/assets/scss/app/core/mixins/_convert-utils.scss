@@ -1,0 +1,45 @@
+//Px to Rem
+@function rem($size, $context: $font-size--base, $unit: true) {
+
+  @if (unitless($size)) {
+    $size: $size * 1px;
+  }
+
+  $remSize: $size / $context;
+
+  @if ($unit == true) {
+    @return $remSize * 1rem;
+  } @else {
+    @return $remSize;
+  }
+}
+
+//PX to Em
+@function em($pixels, $context: $font-size--base, $unit: true) {
+  $is-unit-nub: false;
+
+  @if (type_of($unit) == 'number') {
+    $unit: strip-unit($unit);
+    $is-unit-nub: true;
+  } @else {
+    @if ($unit == true) {
+      $unit: 1em;
+    } @else {
+      $unit: 1;
+    }
+  }
+
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @if ($is-unit-nub == true) {
+    @return ($pixels / ($context * $unit)) * 1em;
+  } @else {
+    @return $pixels / $context * $unit;
+  }
+}

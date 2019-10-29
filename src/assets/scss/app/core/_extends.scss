@@ -1,0 +1,202 @@
+//
+// EXTENDS
+// Creating placeholders via mixin
+//
+// (more https://www.sitepoint.com/cross-media-query-extend-sass/)
+//
+
+//  ==========================================================================
+//  Default Browser Controls
+//  ==========================================================================
+
+// Disable User Select
+@include placeholder('res-user-sel') {
+  //line-height: normal;
+  cursor: default;
+  user-select: none;
+
+  appearance: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-touch-callout: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+
+//  ==========================================================================
+//  List
+//  ==========================================================================
+
+// List UnStyled
+@include placeholder('list-unstyled') {
+  padding-left: 0;
+
+  list-style: none;
+}
+
+//  ==========================================================================
+//  Buttons
+//  ==========================================================================
+
+// Reset Default Buttons Styles
+@include placeholder('res-btn') {
+  cursor: pointer;
+
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+
+  appearance: none;
+
+  text-decoration: none;
+}
+
+// Reset Default Textarea Styles
+@include placeholder('res-textarea') {
+  overflow:auto;
+
+  resize: none;
+  cursor: pointer;
+  vertical-align:top;
+
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+
+  appearance: none;
+}
+
+// Remove X from input search
+@include placeholder('res-search-x') {
+  /* clears the 'X' from Internet Explorer */
+  &::-ms-clear {
+    display: none;
+
+    width: 0;
+    height: 0;
+  }
+  &::-ms-reveal {
+    display: none;
+
+    width: 0;
+    height: 0;
+  }
+
+  /* clears the 'X' from Chrome */
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button,
+  &::-webkit-search-results-button,
+  &::-webkit-search-results-decoration {
+    display: none;
+  }
+}
+
+//  ==========================================================================
+//  Box View
+//  ==========================================================================
+@include placeholder('center-abs-t') {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+}
+
+
+//  ==========================================================================
+//  Form elements
+//  ==========================================================================
+
+// Reset Default Form Fields Styles
+@include placeholder('res-fields') {
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+
+  appearance: none;
+}
+
+@include placeholder('res-sel-field') {
+  line-height: normal;
+
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  box-shadow: none;
+
+  appearance: none;
+
+  &::-ms-expand {
+    display: none;
+  }
+}
+
+// Max Width Container
+@include placeholder('max-width-container') {
+  @include bPoint(lg) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1280px;
+  }
+
+  @include bPoint(xlg) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1920px;
+  }
+}
+
+//  ==========================================================================
+//  Page
+//  ==========================================================================
+
+// Page Title
+@include placeholder('page-offset') {
+  height: 100%;
+  padding: rem($grid-cell__size--sm * 3) rem($grid-cell__size);
+}
+
+@include placeholder('page-content') {
+  height: 100%;
+  padding: rem($grid-cell__size--sm * 2 + 3);
+
+  background: $color-white;
+}
+
+@include placeholder('table-offset') {
+  margin-top: rem($grid-cell__size--sm);
+}
+
+// Panel Title
+@include placeholder('panel-title') {
+  font-size: em($font-size__h1);
+  font-weight: $fw--medium;
+  line-height: em(20px, $font-size__h1, false);
+}
+
+//  ==========================================================================
+//  Animation
+//  ==========================================================================
+// Fix Chrome Flicker
+@include placeholder('chrome-flicker') {
+  -webkit-backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -webkit-transform-style: preserve-3d;
+}
+
+// Disable Transition Recursively
+@include placeholder('disable-ts') {
+  * {
+    transition: none;
+
+    &:before,
+    &:after {
+      transition: none;
+    }
+  }
+}

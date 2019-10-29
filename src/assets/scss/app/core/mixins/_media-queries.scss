@@ -1,0 +1,40 @@
+// Caching current breakpoint
+// Not meant to be manually edited
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+
+// The usual breakpoint mixin
+// Except it updates the $current-breakpoint variable
+// https://www.sitepoint.com/cross-media-query-extend-sass/
+@mixin bPoint($breakpoint, $greater: true, $landscape: false) {
+	$value: map-get($mq-breakpoints, $breakpoint);
+
+	@if $value != null {
+		$current-breakpoint: $breakpoint !global;
+		$direction: 'min-width';
+
+		@if ($greater != true) {
+			$value: $value - 1;
+			$direction: 'max-width'
+		}
+
+		@if ($landscape) {
+			@media all and (#{$direction}: #{$value}) and (orientation: landscape) {
+				@content;
+			}
+		} @else {
+			@media all and (#{$direction}: #{$value}) {
+				@content;
+			}
+		}
+
+
+		$current-breakpoint: $default-breakpoint !global;
+	}
+
+		// If `$breakpoint` doesn't exist in `$breakpoints`,
+		// Warn the user and do nothing
+	@else {
+		@warn "Invalid breakpoint `#{$breakpoint}`.";
+	}
+}

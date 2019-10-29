@@ -1,0 +1,21 @@
+/* # Page
+   ========================================================================== */
+body,
+.page-container {
+  min-height: 100vh;
+}
+
+.page-container {
+  display: flex;
+
+  width: 100%;
+}
+
+.page-content {
+  flex: 1 0 50%;
+
+  max-width: rem($grid-cell__size--xlg * 24.5);
+  margin: 0 auto;
+  padding: rem($header__height) rem($grid-cell__size--sm) 0 rem($grid-cell__size--sm);
+}
+

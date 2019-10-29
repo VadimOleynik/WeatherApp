@@ -1,0 +1,29 @@
+.-hidden {
+	display: none !important;
+}
+
+.js-hidden {
+	display: none !important;
+}
+
+.-overflow-hidden {
+	overflow: hidden !important;
+}
+
+.-w-full {
+	width: 100% !important;
+	flex: 1 0 100% !important;
+}
+
+.-fw-med{
+    font-weight: $fw--medium;
+}
+
+@keyframes loadingRotate {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}

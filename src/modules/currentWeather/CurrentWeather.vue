@@ -2,8 +2,6 @@
     <main>
         <h1>Сервіс погоди</h1>
 
-        <CitySelection @citySelection="citySelectionHandler"/>
-
         <section v-if="showWeather">
             <h2>Актуальна погода у місті {{activeCityObj.title}}</h2>
 
@@ -21,7 +19,6 @@
   import ajax from '@/axios-auth'
   import Weather from './models/Weather'
 
-  import CitySelection from './components/CitySelection'
 
   export default {
     name: 'app',
@@ -57,10 +54,6 @@
         this.setActiveCity(cityObj);
         this.getWeatherData ();
       }
-    },
-
-    components: {
-      CitySelection
     }
   }
 

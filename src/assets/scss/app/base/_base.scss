@@ -1,0 +1,152 @@
+/* # Base Main Styles
+   ========================================================================== */
+
+html {
+  box-sizing: border-box;
+
+  /* Adjust font size */
+  -webkit-text-size-adjust: 100%;
+  /* Font varient */
+  font-variant-ligatures: none;
+  -webkit-font-variant-ligatures: none;
+  /* Smoothing */
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  text-shadow: rgba(0, 0, 0, .01) 0 0 1px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-family--base;
+  font-size: 1em; // reset frameworks font-size
+  line-height: inherit;
+
+  position: relative;
+
+  overflow-x: hidden;
+
+  counter-reset: item;
+
+  color: $color__text;
+  background-color: $color-body;
+  font-weight: $fw--reg;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul {
+  margin: 0;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size-adjust: 0.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: $fw--medium;
+
+  //margin: vr(1) 0;
+}
+
+p + p {
+  margin-top: vr(1);
+}
+
+h1 {
+  font-size: rem($font-size__h1);
+}
+
+h2 {
+  font-size: rem($font-size__h2);
+}
+
+h3 {
+    font-size: rem($font-size__h3);
+}
+
+h4 {
+    font-size: rem($font-size__h4);
+}
+
+h5 {
+    font-size: rem($font-size__h5);
+}
+
+.-font-base {
+  font-size: 1rem;
+  font-weight: $fw--reg;
+}
+
+a {
+  text-decoration: none;
+
+  color: $color__links;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+
+    color: $color__links--hover;
+  }
+}
+
+img {
+  max-width: 115px;
+  margin-top: 3px;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  line-height: inherit;
+}
+
+button,
+select {
+  @include _extend('res-user-sel');
+}
+
+a,
+button,
+input,
+textarea {
+  @include _extend('chrome-flicker');
+
+  transition: all $ts--base--fs;
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  @include _extend('res-user-sel');
+}

@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
+    name: 'citySelection',
+    component: resolve => require(['@/modules/citySelection/CitySelection.vue'], resolve),
+  },
+  {
+    path: '/current-weather',
     name: 'currentWeather',
     component: resolve => require(['@/modules/currentWeather/CurrentWeather.vue'], resolve),
   },

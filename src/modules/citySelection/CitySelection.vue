@@ -14,7 +14,7 @@
 </template>
 
 <script>
-  import Cities from '../models/Cities.js'
+  import Cities from './models/Cities.js'
 
   export default {
     name: 'app',

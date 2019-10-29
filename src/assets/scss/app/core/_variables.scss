@@ -1,0 +1,142 @@
+// Table of Contents
+//
+// Colors
+// Typography
+// Media queries breakpoints
+// Grid
+// Z-index
+// Animation
+// Layouts
+// MODULES
+// Panel box
+
+
+// # Colors
+// ==========================================================================
+
+// Main Colors Palette
+$color-lead: #30333A; //#ffbc06
+$color-gray: #CCCCCC;
+$color-gray-light: #CFCFCF;
+$color-white: #ffffff;
+$color-white-light: #F8F9FA;
+$color-dark: #3e4042;
+$color-dark-light: #959799;
+$color-light: $color-gray;
+$color-lightest: rgba($color-white, 0.2);
+
+$color-brand: #33ad6c;
+$color-danger: #FC633D;
+$color-success: #9ACA41;
+$color-warning: #FDBA50;
+$color-success--dark: #84AD38;
+
+// Color Text
+$color__text: $color-lead;
+
+// Color Links
+$color__links: $color-light;
+$color__links--hover: $color-lead;
+//$color__links--disabled: rgba($color-lead, 0.5);
+
+
+// Color Layout
+$color-body: $color-white-light;
+
+// # Typography
+// ==========================================================================
+
+// Font Families
+$font-family__name--base: 'GothamPro';
+$font-family--base: unquote('"'+ $font-family__name--base + '"'+ ', sans-serif');
+
+$font-family__name--icons: 'Material icons';
+$font-family--icons: unquote('"'+ $font-family__name--icons + '"'+ ', sans-serif');
+
+// Font Weight
+$fw--light: 300;
+$fw--reg: 400;
+$fw--medium: 600;
+$fw--bold: 700;
+$fw--black: 900;
+
+// Base font-size
+$font-size--base: 16px;
+$font-size--body: 14px;
+
+// Base line-height
+$line-height--base: 26px / $font-size--base;
+
+$font-size__h1: 18px;
+$font-size__h2: 16px;
+$font-size__h3: 14px;
+$font-size__h4: 12px;
+$font-size__h5: 10px;
+
+$font-size__sm: 12px;
+
+
+// # Media queries breakpoints
+// ==========================================================================
+$screen-xs-min: 480px !default; // Extra small screen / phone
+$screen-sm-min: 768px !default; // Small screen / tablet
+$screen-md-min: 992px !default; // Medium screen / desktop
+$screen-lg-min: 1200px !default; // Large screen / wide desktop
+//$screen-xlg-min: 1600px !default; //Custom breakpoint for extra large device
+$screen-xlg-min: 1920px !default; //Custom breakpoint for extra large device
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max: ($screen-sm-min - 1) !default; // 767px
+$screen-sm-max: ($screen-md-min - 1) !default; // 991px
+$screen-md-max: ($screen-lg-min - 1) !default; // 1199px
+
+// Breakpoints List (min)
+$mq-breakpoints: (xs: $screen-xs-min,
+sm: $screen-sm-min,
+md: $screen-md-min,
+lg: $screen-lg-min,
+xlg: $screen-xlg-min);
+
+// Breakpoints List (max)
+$mq-breakpoints-max: (xs: $screen-sm-min - 1,
+sm: $screen-md-min - 1,
+md: $screen-lg-min - 1,
+lg: $screen-xlg-min - 1);
+
+
+// # Grid
+// ==========================================================================
+$grid-cell__size: $font-size--base / 2;
+$grid-cell__size--sm: $font-size--base; // 16px
+$grid-cell__size--xlg: $font-size--base * 3; // 48px
+
+
+// # Z-index
+// ==========================================================================
+$z-after-all: 999999;
+
+$z-modal-box: 2000;
+$z-side-panel: 1500;
+$z-header: 1000;
+
+
+// # Animation
+// ==========================================================================
+$ts-duration--base: 0.3s;
+$ts-timing-func--base: ease-in-out;
+$ts-delay--base: 0.3s;
+
+$ts--base: unquote($ts-duration--base + ' '+ $ts-timing-func--base);
+$ts--base--fs: unquote(0.125s + ' '+ $ts-timing-func--base);
+$ts--panels: 0.3s cubic-bezier(.41, 1.06, .75, 1.03);
+
+// # Layouts
+// ==========================================================================
+$nav-panel__width: 256px; //todo change it when grid is ready
+
+
+// Header
+$header__height: 60px;
+
+// # Pages
+// ==========================================================================

@@ -1,0 +1,49 @@
+// Extend (custom extend works in media query)
+//
+// Caching existing placeholders
+// Not meant to be manually edited
+$placeholders: ();
+
+// Generating placeholders
+// actually generating one placeholder per breakpoint
+@mixin placeholder($name) {
+
+  @if not index($placeholders, $name) {
+    $placeholders: append($placeholders, $name) !global;
+    @at-root {
+      @each $breakpoint, $value in $mq-breakpoints {
+        @media all and (max-width: $value - 1) {
+          %max-#{$name}-#{$breakpoint} {
+            @content;
+          }
+        }
+
+        @media all and (min-width: $value) {
+          %min-#{$name}-#{$breakpoint} {
+            @content;
+          }
+        }
+      }
+
+      %min-#{$name}-#{$default-breakpoint} {
+        @content;
+      }
+
+      %max-#{$name}-#{$default-breakpoint} {
+        @content;
+      }
+    }
+  } @else {
+    @warn "Placeholder `#{$name}` already exists.";
+  }
+}
+
+// Extend the accurate placeholder
+// according to the current scope
+@mixin _extend($name, $greater: true) {
+  @if $greater != true {
+    @extend %max-#{$name}-#{$current-breakpoint} !optional;
+  } @else {
+    @extend %min-#{$name}-#{$current-breakpoint} !optional;
+  }
+}
